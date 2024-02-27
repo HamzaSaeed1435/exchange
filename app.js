@@ -1,6 +1,7 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const authRoutes = require('./routes/auth');
+const dealRoutes = require('./routes/deals')
 const { connect: DB_connect } = require('./models/index');
 
 
@@ -12,6 +13,9 @@ app.use(bodyParser.json());
 
 // Register routes
 app.use('/api/v1/auth', authRoutes);
+app.use('/api/v1/deals', dealRoutes);
+
+
 
 const PORT = process.env.PORT || 3000;
 

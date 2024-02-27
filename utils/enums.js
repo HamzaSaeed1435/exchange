@@ -28,6 +28,9 @@ module.exports.API_CODES = {
     MISSING_TOKEN : {code: 'MT' ,  message: 'Access Token not provided' },
     INVALID_TOKEN : {code: 'IT' ,  message: 'Invalid access token provided' },
     EXPIRED_TOKEN : {code: 'ET' ,  message: 'access token is expired' },
+    USER_NOT_FOUND : {code: 'UNF' ,  message: 'User not found!' },
+    DEALS_CREATED : {code: 'DC' ,  message: 'Deals Created Sucessfully!' },
+    DEALS_UPDATED : {code: 'DU' ,  message: 'Deals Created Sucessfully!' },
 }
 
 module.exports.API_RESPONSE_STATUS = {

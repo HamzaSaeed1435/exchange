@@ -45,16 +45,24 @@ function isNullOrEmpty(value) {
  /**
   * this fucntion for generating a standard resposne
   */
-  function generateResponse(status, code, data = {}, error = null) {
+  function generateResponse(statusCode, status, code, data = {}, error = null) {
     data = data ? data : {};
     error = error ? error : null;
-  
+    const codeIsEmpty = Object.keys(code).length === 0 && code.constructor === Object;
+
     const response = {
+      statusCode: statusCode,
       status: status,
-      code: code,
+      code: code || {},
+      message: '',
       data: data,
       error: error,
     };
+
+    if (!codeIsEmpty) {
+      response.code = code.code;
+      response.message = code.message;
+    }
   
     return response;
   }

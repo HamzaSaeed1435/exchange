@@ -1,7 +1,7 @@
 const { DataTypes  } = require('sequelize');
-const sequelize = require('./sequelize');
+const sequelize = require('./db');
 
-const User = sequelize.define('User', {
+const User = sequelize.define('user', {
   email: {
     type: DataTypes.STRING,
     allowNull: false,
@@ -11,6 +11,17 @@ const User = sequelize.define('User', {
     type: DataTypes.STRING,
     allowNull: false,
   },
+},{
+  timestamps: false
+}
+);
+
+
+User.associate = function (models) {
+  User.hasMany(models.deals, {
+    onDelete: "cascade",
+    foreignKey: "user_id",
 });
 
+};
 module.exports = User;

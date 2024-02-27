@@ -6,7 +6,7 @@ const enums = require('../utils/enums')
  * generate Access Token
  */
 async function generateAccessToken(userId) {
-  return jwt.sign({ userId }, JWT_SECRET, {
+  return jwt.sign({ user_id: userId }, JWT_SECRET, {
     expiresIn: enums.ACCESS_TOKEN_EXPIRY_TIME,
   });
 }
@@ -16,7 +16,7 @@ async function generateAccessToken(userId) {
  * generate Refresh Token
  */
 async function generateRefreshToken(userId) {
-  return jwt.sign({ userId }, REFRESH_TOKEN_SECRET, {
+  return jwt.sign({ user_id: userId }, REFRESH_TOKEN_SECRET, {
     expiresIn: enums.REFRESH_TOKEN_EXPIRY_TIME,
   });
 }
