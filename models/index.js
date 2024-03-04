@@ -21,7 +21,7 @@ const connect = async ({ sync = false, force = false, alter = false }) => {
         }
     }
     
-    // sequelize.sync({ force: true });
+    sequelize.sync({ });
 
     if (sync) {
         sequelize.sync();
